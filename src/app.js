@@ -1,4 +1,5 @@
 const express = require('express');
+require('./services/passport');
 const userRouter = require('./routers/user');
 
 const app = express();

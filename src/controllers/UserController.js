@@ -1,4 +1,14 @@
+const jwt = require('jwt-simple');
 const User = require('../models/User');
+
+function encodeJwt(user) {
+  const timestamp = (new Date()).getTime();
+
+  return jwt.encode({
+    sub: user._id,
+    iat: timestamp
+  }, process.env.JWT_SECRET_KEY);
+}
 
 module.exports = {
   async list(req, res, next) {
@@ -58,26 +68,7 @@ module.exports = {
       next(err);
     }
   },
-  async authenticate(req, res, next) {
-    try {
-      const { email, password } = req.body;
-      const user = await User.findOne({ email }).select('+password');
-
-      const unauthorized = { status: 401, message: 'Invalid username and/or password' };
-
-      if (!user) {
-        return next(unauthorized);
-      }
-
-      user.comparePassword(password, function (err, isMatch) {
-        if (err) return next(err);
-
-        if (!isMatch) return next(unauthorized);
-
-        res.json({ success: true });
-      });
-    } catch (err) {
-      next(err);
-    }
+  authenticate(req, res) {
+    res.status(200).json({ token: encodeJwt(req.user) });
   }
 };
