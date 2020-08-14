@@ -36,9 +36,14 @@ module.exports = {
   async update(req, res, next) {
     try {
       const { id } = req.params;
-      const user = await User.findByIdAndUpdate(id, req.body);
+      const { email, password } = req.body;
+      const user = await User.findById(id);
+      user.email  = email;
+      user.password = password;
 
-      res.json(user);
+      await user.save();
+
+      res.json({ success: true, email });
     } catch (err) {
       next(err);
     }
