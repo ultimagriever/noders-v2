@@ -36,7 +36,7 @@ module.exports = {
   },
   async update(req, res, next) {
     try {
-      const updatedTodo = await Todo.updateOne({ id: req.params._id, owner: req.user._id }, { ...req.body, owner: req.user._id });
+      const updatedTodo = await Todo.updateOne({ _id: req.params.id, owner: req.user._id }, { ...req.body, owner: req.user._id });
 
       res.json(updatedTodo);
     } catch (err) {
@@ -55,9 +55,9 @@ module.exports = {
         return res.status(403).json({ message: "Forbidden" });
       }
 
-      await Todo.deleteOne({ id: req.params._id });
+      await Todo.deleteOne({ _id: req.params.id });
 
-      res.json({ success: true, id: req.params._id });
+      res.json({ success: true, id: req.params.id });
     } catch (err) {
       next(err);
     }
