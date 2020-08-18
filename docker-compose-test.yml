@@ -9,7 +9,7 @@ services:
     command: npm run integration
     environment:
       MONGODB_URI: mongodb://db:27017/test
-      JWT_SECRET_KEY: keyboardcatsplaying
+      JWT_SECRET_KEY: keyboardcatsplayingaround
     depends_on:
       - db
   db:

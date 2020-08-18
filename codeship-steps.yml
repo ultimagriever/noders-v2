@@ -1,0 +1,9 @@
+- name: unit tests
+  tag: master
+  service: api
+  command: npm run test
+
+- name: integration tests
+  tag: master
+  service: api
+  command: npm run integration
