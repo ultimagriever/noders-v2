@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "jest src --coverage --bail",
+    "test": "jest src/**/*.test.js --coverage --bail",
     "integration": "jest test/components/**/*.test.js --runInBand --bail"
   },
   "author": "",
