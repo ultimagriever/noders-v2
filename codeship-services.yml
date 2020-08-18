@@ -1,6 +1,7 @@
 api:
   build:
     context: .
+    dockerfile: Dockerfile
     args:
       NODE_ENV: development
   environment:
