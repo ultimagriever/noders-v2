@@ -10,6 +10,6 @@ app.use(express.json());
 app.use('/users', userRouter);
 app.use('/todos', todoRouter);
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hello World from AWS ECS-Fargate!'));
 
 module.exports = app;

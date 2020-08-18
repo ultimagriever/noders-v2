@@ -14,3 +14,7 @@
   image_name: 023360584175.dkr.ecr.us-east-1.amazonaws.com/nodersv2:latest
   registry: https://023360584175.dkr.ecr.us-east-1.amazonaws.com
   dockercfg_service: awsdeploy_dockercfg_generator
+
+- name: Update Service
+  service: awsdeploy
+  command: aws ecs update-service --service NodersV2 --task-definition App
