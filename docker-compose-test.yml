@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  test:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    command: npm run integration
+    env_file:
+      - .env.test
+    depends_on:
+      - db
+  db:
+    image: mongo:3-xenial
+    restart: always
+    environment:
+      MONGODB_INIT_ROOT_USERNAME: root
+      MONGODB_INIT_ROOT_PASSWORD: example

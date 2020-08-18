@@ -48,8 +48,8 @@ module.exports = {
       const { id } = req.params;
       const { email, password } = req.body;
       const user = await User.findById(id);
-      user.email  = email;
-      user.password = password;
+      if (email) user.email  = email;
+      if (password) user.password = password;
 
       await user.save();
 

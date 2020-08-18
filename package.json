@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "jest --coverage --bail"
+    "test": "jest src --coverage --bail",
+    "integration": "jest test/components/**/*.test.js --runInBand --bail"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +24,10 @@
   "devDependencies": {
     "faker": "^4.1.0",
     "jest": "^26.4.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

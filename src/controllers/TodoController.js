@@ -36,7 +36,7 @@ module.exports = {
   },
   async update(req, res, next) {
     try {
-      const updatedTodo = await Todo.updateOne({ _id: req.params.id, owner: req.user._id }, { ...req.body, owner: req.user._id });
+      const updatedTodo = await Todo.updateOne({ _id: req.params.id, owner: req.user._id }, { ...req.body, owner: req.user._id }, { runValidators: true });
 
       res.json(updatedTodo);
     } catch (err) {

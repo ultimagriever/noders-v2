@@ -13,7 +13,7 @@ const TodoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'user'
   }
-});
+}, { timestamps: true });
 
 const Todo = mongoose.model('todo', TodoSchema);
 
