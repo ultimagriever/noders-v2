@@ -1,5 +1,8 @@
 api:
-  build: .
+  build:
+    context: .
+    args:
+      NODE_ENV: development
   environment:
     MONGODB_URI: mongodb://db:27017/test
     JWT_SECRET_KEY: keyboardcatsplayingaround
