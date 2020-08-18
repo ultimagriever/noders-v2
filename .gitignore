@@ -5,3 +5,4 @@ coverage
 !.env.example
 .idea
 *.log*
+codeship.aes

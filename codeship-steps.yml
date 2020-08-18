@@ -1,9 +1,16 @@
-- name: unit tests
+- name: Unit Tests
   tag: master
   service: api
   command: npm run test
 
-- name: integration tests
+- name: Integration Tests
   tag: master
   service: api
   command: npm run integration
+
+- name: Push to Container Registry
+  service: api
+  type: push
+  image_name: 023360584175.dkr.ecr.us-east-1.amazonaws.com/nodersv2:latest
+  registry: https://023360584175.dkr.ecr.us-east-1.amazonaws.com
+  dockercfg_service: awsdeploy_dockercfg_generator
