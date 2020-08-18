@@ -159,7 +159,7 @@ describe('Todo Controller', () => {
 
     await TodoController.update(req, res, next);
 
-    expect(Todo.updateOne).toHaveBeenCalledWith({ _id: todo._id, owner: ownerId }, { ...body, owner: ownerId });
+    expect(Todo.updateOne).toHaveBeenCalledWith({ _id: todo._id, owner: ownerId }, { ...body, owner: ownerId }, { runValidators: true });
   });
 
   test('Sends update error to error middleware', async () => {
