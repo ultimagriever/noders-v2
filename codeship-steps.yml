@@ -17,4 +17,4 @@
 
 - name: Update Service
   service: awsdeploy
-  command: aws ecs update-service --service NodersV2 --task-definition App
+  command: aws ecs update-service --cluster NodersV2 --service NodersV2 --task-definition App
