@@ -7,8 +7,9 @@ services:
       args:
         NODE_ENV: development
     command: npm run integration
-    env_file:
-      - .env.test
+    environment:
+      MONGODB_URI: mongodb://db:27017/test
+      JWT_SECRET_KEY: keyboardcatsplaying
     depends_on:
       - db
   db:
