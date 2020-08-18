@@ -1,18 +1,17 @@
-services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        NODE_ENV: development
-    environment:
-      MONGODB_URI: mongodb://db:27017/test
-      JWT_SECRET_KEY: keyboardcatsplayingaround
-    depends_on:
-      - db
+api:
+  build:
+    context: .
+    dockerfile: Dockerfile
+    args:
+      NODE_ENV: development
+  environment:
+    MONGODB_URI: mongodb://db:27017/test
+    JWT_SECRET_KEY: keyboardcatsplayingaround
+  depends_on:
+    - db
 
-  db:
-    image: mongo:3-xenial
-    environment:
-      MONGODB_INIT_ROOT_USERNAME: root
-      MONGODB_INIT_ROOT_PASSWORD: example
+db:
+  image: mongo:3-xenial
+  environment:
+    MONGODB_INIT_ROOT_USERNAME: root
+    MONGODB_INIT_ROOT_PASSWORD: example
